@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de Música</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        li a {
+            text-decoration: none;
+            color: #333;
+            display: inline-block;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        li a:hover {
+            background-color: #f0f0f0;
+        }
+
+        #btnPlay {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #1db954;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #btnPlay:hover {
+            background-color: #1ed760;
+        }
+    </style>
+</head>
+<main>
+<body>
+    <h1>Lista de Jerald</h1>
+<ul>
+    <li><a href="/y2mate.com - His Name.mp3">Canción 1</a></li>
+    <li><a href="/y2mate.com - He Knows Me Better  Jenessa Buttars (1).mp3">Canción 2</a></li>
+    <li><a href="/y2mate.com - Footsteps.mp3">Canción 3</a></li>
+    <li><a href="/y2mate.com - I Can Do All Things Through Christ.mp3">Cancion 4</a></li>
+    <li><a href="/y2mate.com - Redeemer.mp3">Cancion 5</a></li>
+    <!-- Agrega más canciones con la misma estructura -->
+</ul>
+
+<button id="btnPlay">Reproducir automáticamente</button>
+
+<audio controls id="audioPlayer">
+    Tu navegador no soporta la reproducción de audio.
+</audio>
+
+<script>
+    const playlist = document.querySelectorAll('ul li a');
+    const audioPlayer = document.getElementById('audioPlayer');
+    const btnPlay = document.getElementById('btnPlay');
+    let currentTrackIndex = 0;
+
+    function playNextTrack() {
+        if (currentTrackIndex < playlist.length) {
+            audioPlayer.src = playlist[currentTrackIndex].href;
+            audioPlayer.play();
+            currentTrackIndex++;
+        } else {
+            currentTrackIndex = 0;
+            audioPlayer.src = playlist[currentTrackIndex].href;
+            audioPlayer.play();
+            // Si no hay más canciones, detiene la reproducción automática
+           // audioPlayer.pause();
+           // currentTrackIndex = 0;
+           // btnPlay.disabled = false;
+        }
+    }
+
+    btnPlay.addEventListener('click', () => {
+        btnPlay.disabled = true;
+        playNextTrack();
+    });
+
+    audioPlayer.addEventListener('ended', playNextTrack);
+</script>
+</main>
+<!---    <h1>Lista de reproducción</h1>
+    <ul>
+        <li><a href="/songs/y2mate.com - He Knows Me Better  Jenessa Buttars (1).mp3">Canción 1</a></li>
+        <li><a href="/songs/y2mate.com - I Can Do All Things Through Christ.mp3">Canción 2</a></li>
+        <li><a href="/songs/y2mate.com - Redeemer.mp3">Canción 3</a></li>
+        <li><a href="/songs/y2mate.com - His Name.mp3">Cancion 4</a></li>
+        <li><a href="/songs/y2mate.com - Footsteps.mp3">Cancion 5</a></li>
+        Agrega más canciones con la misma estructura 
+    </ul>
+    <button id="btnPlay">Reproducir automáticamente</button>
+
+<audio>
+    <source src="/songs/y2mate.com - Footsteps.mp3" type="audio/mpeg" id="audioPlayer">
+    Tu navegador no soporta la reproducción de audio.
+</audio> -->
+<!---
+    <audio controls>
+        <source src="/songs/y2mate.com - He Knows Me Better  Jenessa Buttars (1).mp3" type="audio/mpeg" id="audioPlayer">
+        Tu navegador no soporta la reproducción de audio. </audio>
+        <audio controls>
+        <source src="/songs/y2mate.com - I Can Do All Things Through Christ.mp3" type="audio/mpeg" id="audioPlayer1">
+        Tu navegador no soporta la reproducción de audio. </audio>
+        <audio controls>
+        <source src="/songs/y2mate.com - Redeemer.mp3" type="audio/mpeg" id="audioPlayer2">
+        Tu navegador no soporta la reproducción de audio.</audio>
+        <audio controls>
+        <source src="/songs/y2mate.com - His Name.mp3" type="audio/mpeg" id="audioPlayer3">
+        Tu navegador no soporta la reproducción de audio.</audio>
+        <audio controls>
+        <source src="/songs/y2mate.com - Footsteps.mp3" type="audio/mpeg" id="audioPlayer4">
+        Tu navegador no soporta la reproducción de audio.</audio>
+        -->
+<!---    <script>
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playlist = document.querySelectorAll('ul li a');
+    
+        const audioPlayer1 = document.getElementById('audioPlayer');
+        const playlist = document.querySelectorAll('ul li a');
+
+        playlist.forEach((song, index) => {
+            song.addEventListener('click', (event) => {
+                event.preventDefault();
+                audioPlayer.src = song.href;
+                audioPlayer.play();
+            });
+        });
+    </script>-->
+    
+</body>
+</html>
